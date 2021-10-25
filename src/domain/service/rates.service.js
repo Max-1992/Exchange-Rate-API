@@ -1,23 +1,19 @@
 class RatesService {
+  constructor (ratesBusinessRules, mapperEntity) {
+    this.ratesBusinessRules = ratesBusinessRules
+    this.mapperEntity = mapperEntity
+  }
 
-    #ratesBusinessRules
-    #mapperEntity
+  async getAllRates () {
+    const fxRates = await this.ratesBusinessRules.getFxRates()
+    const currencyRates = this.ratesBusinessRules.quoteCurrencyPairs(fxRates)
 
-    constructor(ratesBusinessRules, mapperEntity) {
-        this.#ratesBusinessRules = ratesBusinessRules
-        this.#mapperEntity = mapperEntity
-    }
+    const fxRatesWithMarkUpApplied = currencyRates.map(pair => this.ratesBusinessRules.addMarkUp(pair))
 
-    async getAllRates () {
-        const fxRates = await this.#ratesBusinessRules.getFxRates()
+    const exchangeRates = fxRatesWithMarkUpApplied.map(currencyRate => this.mapperEntity.buildExchangeRateEntity(currencyRate.pair, currencyRate.amount, currencyRate.markUp, currencyRate.feeAmount, currencyRate.rateMarkUpApplied))
 
-        const currencyRates = this.#ratesBusinessRules.quoteCurrencyPairs(fxRates)
-        const exchangeRates = currencyRates.map(currencyRate => this.#mapperEntity.buildExchangeRateEntity(currencyRate.pair, currencyRate.amount)) 
-
-        // const fxRatesWithMarkUpApplied = this.#ratesBusinessRules.addMarkUp(fxRates)
-
-        return exchangeRates
-    }
+    return exchangeRates
+  }
 }
 
 module.exports = RatesService

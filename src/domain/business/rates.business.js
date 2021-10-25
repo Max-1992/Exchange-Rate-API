@@ -4,10 +4,12 @@ class RatesBusinessRules {
 
     #fxService
     #quote
+    #pricing
 
-    constructor(fxService, quote) {
+    constructor(fxService, quote, pricing) {
         this.#fxService = fxService
         this.#quote = quote
+        this.#pricing = pricing
     }
 
     async getFxRates () {
@@ -43,8 +45,14 @@ class RatesBusinessRules {
         return currencyPairs
     }
 
-    addMarkUp () {
+    addMarkUp (pair) {
+        const markUpAmount = this.#pricing.markUp(pair.markUp, pair.amount)
+        const markUpApplied = this.#pricing.applyNegatively(pair.amount, markUpAmount)
 
+        pair.feeAmount = markUpAmount
+        pair.rateMarkUpApplied = markUpApplied
+
+        return pair
     }
 }
 

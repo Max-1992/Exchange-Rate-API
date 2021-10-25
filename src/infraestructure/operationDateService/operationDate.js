@@ -1,15 +1,12 @@
 class OperationDate {
-    
-    #dateModule
+  constructor (dateModule) {
+    this.dateModule = dateModule
+  }
 
-    constructor (dateModule) {
-        this.#dateModule = dateModule
-    }
-
-    createDateWithFormat(format) {
-        const date = this.#dateModule().format(format)
-        return date
-    }
+  createDateWithFormat (format) {
+    const date = this.dateModule().format(format)
+    return date
+  }
 }
 
 module.exports = OperationDate
