@@ -4,8 +4,8 @@
   "description": "",
   "main": "./src/api/app.js",
   "scripts": {
-    "start": "cross-env HOST='0.0.0.0' node  ./src/api/app.js",
-    "dev": "cross-env HOST=localhost node ./src/api/app.js",
+    "start": "node ./src/api/app.js",
+    "dev": "node ./src/api/app.js",
     "test": "jest",
     "coverage": "jest --coverage"
   },
