@@ -21,7 +21,7 @@ npm install
 _To run the server locally._
 
 ```
-npm start
+npm run dev
 ```
 
 ## Run test suite ⚙️
