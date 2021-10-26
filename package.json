@@ -4,7 +4,8 @@
   "description": "",
   "main": "./src/api/app.js",
   "scripts": {
-    "start": "node ./src/api/app.js",
+    "start": "cross-env HOST=https://ec2-3-86-92-87.compute-1.amazonaws.com node  ./src/api/app.js",
+    "dev": "cross-env HOST=localhost node ./src/api/app.js",
     "test": "jest",
     "coverage": "jest --coverage"
   },
@@ -16,7 +17,6 @@
     "@hapi/vision": "^6.1.0",
     "awilix": "^5.0.1",
     "axios": "^0.23.0",
-    "cross-env": "^7.0.3",
     "hapi-swagger": "^14.2.4",
     "jest": "^27.3.1",
     "joi": "^17.4.2",
