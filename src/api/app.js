@@ -4,6 +4,7 @@ const Vision = require('@hapi/vision')
 const HapiSwagger = require('hapi-swagger')
 const router = require('./router')
 
+// Setting up Swagger.
 const swaggerOptions = {
   info: {
     title: 'Exchange Rate API Documentation',
@@ -11,15 +12,16 @@ const swaggerOptions = {
   }
 }
 
-// Configurando servidor.
+// Setting up Server.
 const server = Hapi.server({
   port: 3000,
   host: 'localhost'
 })
 
-// Inicializando enrutador.
+// Initializing router.
 router(server)
 
+// Starting application
 const init = async () => {
   await server.register([
     Inert,
