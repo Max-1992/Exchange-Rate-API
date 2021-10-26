@@ -16,6 +16,7 @@
     "@hapi/vision": "^6.1.0",
     "awilix": "^5.0.1",
     "axios": "^0.23.0",
+    "cross-env": "^7.0.3",
     "hapi-swagger": "^14.2.4",
     "jest": "^27.3.1",
     "joi": "^17.4.2",
