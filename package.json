@@ -5,7 +5,6 @@
   "main": "./src/api/app.js",
   "scripts": {
     "start": "node ./src/api/app.js",
-    "dev": "node ./src/api/app.js",
     "test": "jest",
     "coverage": "jest --coverage"
   },
