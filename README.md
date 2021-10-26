@@ -73,7 +73,8 @@ type:
 
 ## Endpoint example 📖
 
-* http://localhost:3000/rates
+* http://localhost:3000//v1/rates
+* http://localhost:3000/documentation#/
 
 ### Response (success)  📖
 ```
