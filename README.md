@@ -1,6 +1,6 @@
 # Exchange rate api
 
-_This api allows you to check the rates for a specific list of currency pairs.._
+_This api allows you to check the rates for a specific list of currency pairs._
 
 ## Getting Starter 🚀
 
